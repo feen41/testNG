@@ -9,17 +9,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class AppTest {
+public class initialTest {
     private WebDriver driver;
 
-    @BeforeTest
+    @BeforeClass
     public void init() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -51,8 +49,8 @@ public class AppTest {
         Assert.assertEquals(vipCountAfterClick,"VIP count: 6", "not equal 2nd time");
 
     }
-    @AfterTest
+    @AfterClass
     public void finish(){
-        driver.close();
+        driver.quit();
     }
 }
